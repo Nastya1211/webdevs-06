@@ -1,4 +1,4 @@
-# Watchcharm — спільний проєкт команди CodeUA студентів GoIT групи FSON 118
+# MK Photographer — спільний проєкт команди WebDevs студентів GoIT групи FSON 128
 
 ## 🧑‍💻 Команда:
 
