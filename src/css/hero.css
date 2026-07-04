@@ -1,3 +1,8 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 .hero {
   background-color: #fbf9f1;
   padding: 32px 20px;
@@ -21,6 +26,12 @@
       url(../img/hero/hero-bgmob@2x.jpg);
   }
 }
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .hero-content {
   max-width: 295px;
   margin-bottom: 32px;
@@ -32,12 +43,16 @@
   letter-spacing: -0.01em;
   color: #fff;
 
+  max-width: 295px;
+
   margin-bottom: 24px;
 }
 .hero-text {
   font-size: 18px;
   line-height: 1.5;
   color: #fff;
+
+  max-width: 295px;
 }
 .hero-btn {
   background-color: #fff;
@@ -45,7 +60,9 @@
   border: 1px solid #fff;
   border-radius: 6px;
   padding: 10px 24px;
-  width: 295px;
+
+  width: 100%;
+  max-width: 295px;
   height: 44px;
 
   display: flex;
@@ -94,16 +111,24 @@
         url(../img/hero/hero-bgtab@2x.jpg);
     }
   }
+  .hero-info {
+    align-items: flex-start;
+  }
   .hero-content {
     max-width: 640px;
   }
   .hero-title {
     max-width: 519px;
   }
+  .hero-text {
+    max-width: 640px;
+  }
   .hero-btn {
     background-color: #dcc110;
     border: 1px solid #dcc110;
-    width: 159px;
+
+    width: 100%;
+    max-width: 159px;
     padding: 10px 23px;
 
     color: #000;
@@ -143,6 +168,7 @@
   }
   .hero-info {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
   }
