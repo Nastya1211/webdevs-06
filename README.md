@@ -11,8 +11,7 @@
 - [Yaroslav Obozov](https://github.com/tchytchmek) — Web Developer
 - [Nikita Levchenko](https://github.com/nikitaleao) — Web Developer
 - [Danylo Tsurupa](https://github.com/rearrise) — Web Developer
-- []() — Web Developer
-- []() — Web Developer
+- [Vlad Leyba](https://github.com/braided) — Web Developer
 
 ## 💡 Головна ідея
 
