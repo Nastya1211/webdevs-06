@@ -1,3 +1,47 @@
-<section id="about">
-  <div class="about-container container"></div>
+<section id="about" class="about">
+  <div class="about-container container">
+    <svg class="about-svg" width="300" height="20">
+      <use href="../img/symbol-defs.svg#icon-decoration"></use>
+    </svg>
+    <h2 class="about-title">
+      Meet Maria Kovalenko: Your Partner in Capturing
+      <span class="break-point">Unforgettable Wedding Moments</span>
+    </h2>
+    <p class="about-desc">
+      With years of experience in wedding photography, Maria specializes in
+      capturing genuine emotions and beautiful moments. Her unique approach
+      blends artistry with a personal touch, ensuring that each couple's story
+      is told through stunning imagery.
+    </p>
+    <picture class="about-image">
+      <source
+        media="(min-width: 1440px)"
+        srcset="
+          ../img/about/about-image-desktop@1x.jpg 1x,
+          ../img/about/about-image-desktop@2x.jpg 2x
+        "
+      />
+
+      <source
+        media="(min-width: 768px)"
+        srcset="
+          ../img/about/about-image-tablet@1x.jpg 1x,
+          ../img/about/about-image-tablet@2x.jpg 2x
+        "
+      />
+
+      <img
+        class="about-img"
+        src="../img/about/about-image-mob@1x.jpg"
+        srcset="
+          ../img/about/about-image-mob@1x.jpg 1x,
+          ../img/about/about-image-mob@2x.jpg 2x
+        "
+        alt="Wedding photographer Maria Kovalenko"
+        width="335"
+        height="273"
+        loading="lazy"
+      />
+    </picture>
+  </div>
 </section>
