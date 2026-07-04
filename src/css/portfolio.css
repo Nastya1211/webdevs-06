@@ -4,7 +4,8 @@
 }
 
 .portfolio-svg {
-  margin-bottom: 24px;
+  display: block;
+  margin: 0 auto 24px;
 }
 
 .portfolio__title {
