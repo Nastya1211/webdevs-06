@@ -1,21 +1,132 @@
 .footer {
-  padding: 20px 0;
+  margin-top: 48px;
+  width: 100%;
 }
-.footer-desc {
+
+.footer-content {
+  font-family: var(--font-family-main);
+  font-weight: 400;
+  background-color: #faf7e6;
+  border: 2px solid #1a1a1a;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+.footer-box {
   text-align: center;
 }
-.footer-link {
-  position: relative;
+
+.footer-title {
+  font-family: var(--font-family-main);
+  font-size: 16px;
+  font-weight: 600;
+  color: #191919;
+  margin-bottom: 15px;
+  line-height: 150%;
 }
-.footer-link::before {
-  content: '';
-  position: absolute;
-  bottom: 6%;
-  left: 50%;
-  transform: translateX(-50%) skewX(-12deg);
-  z-index: -1;
-  width: 110%;
-  height: 24%;
-  background-color: #41d1ff;
-  transition: 200ms ease;
+
+.footer-copy {
+  font-size: 13px;
+  color: #191919;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+.footer-container-text-social {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #333333;
+  font-size: 14px;
+  transition: color 0.2s ease;
+  justify-content: center;
+}
+
+.f-menu-list,
+.f-social-list {
+  list-style: none;
+}
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.f-menu-list li:not(:last-child) {
+  margin-bottom: 32px;
+}
+.f-social-list li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.footer-box a {
+  text-decoration: none;
+  color: #333333;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.footer-box a:hover {
+  color: #a38a5e;
+}
+.footer-svg-d {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .footer-content {
+    padding: 48px;
+    flex-direction: row;
+    align-items: start;
+  }
+  .menu-container {
+    flex-direction: row;
+    gap: 40px;
+    align-items: start;
+  }
+  .footer-container-text-social {
+    justify-content: start;
+  }
+  .footer-svg {
+    display: none;
+  }
+  .footer-svg-d {
+    display: block;
+  }
+  .footer-box-logo {
+    margin-right:auto;
+  }
+  .footer-box {
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    padding: 50px 0;
+    margin: 40px auto;
+
+    border-radius: 30px;
+  }
+  .footer-box-menu {
+    margin-right: 134px;
+  }
+
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 50px;
+    gap: 0;
+  }
+
+  .footer-box {
+    width: 30%;
+    text-align: left;
+  }
 }
