@@ -16,7 +16,7 @@
     <script type="module" crossorigin src="/webdevs-06/index.js"></script>
     <link rel="modulepreload" crossorigin href="/webdevs-06/assets/vendor-mxE0SZr6.js">
     <link rel="stylesheet" crossorigin href="/webdevs-06/assets/vendor-D_nxXpU-.css">
-    <link rel="stylesheet" crossorigin href="/webdevs-06/assets/index-DXqbTj6C.css">
+    <link rel="stylesheet" crossorigin href="/webdevs-06/assets/index-CDVlYn_p.css">
   </head>
   <body>
     <header class="header">
@@ -87,7 +87,56 @@
 </section>
 
       <section id="portfolio">
-  <div class="portfolio-container container"></div>
+  <div class="container">
+    <svg class="portfolio-svg" width="300" height="20">
+      <use href="/webdevs-06/assets/symbol-defs-BsG1ewFk.svg#icon-decoration"></use>
+    </svg>
+    <h2 class="portfolio__title">Portfolio Highlights</h2>
+
+    <ul
+      class="portfolio__filters"
+      id="portfolioFilters"
+      role="tablist"
+      aria-label="Фільтр портфоліо"
+    >
+      <li class="portfolio__filter-item" role="presentation">
+        <button
+          type="button"
+          class="portfolio__filter-btn is-active"
+          role="tab"
+          aria-selected="true"
+          data-category="all"
+        >
+          All Photos
+        </button>
+      </li>
+    </ul>
+
+    <div
+      class="portfolio__loader"
+      id="portfolioLoader"
+      aria-live="polite"
+      aria-hidden="true"
+    >
+      <span class="portfolio__loader-spinner"></span>
+      <span class="portfolio__loader-text">Завантаження...</span>
+    </div>
+
+    <ul class="portfolio__list" id="portfolioList" aria-live="polite">
+      <li class="portfolio__item">
+        <img
+          class="portfolio__img"
+          src="https://example.com/photo1.jpg"
+          alt="Опис фото"
+          loading="lazy"
+        />
+      </li>
+    </ul>
+
+    <button type="button" class="portfolio__show-more" id="portfolioShowMore">
+      Show More
+    </button>
+  </div>
 </section>
 
       <section id="faq">
