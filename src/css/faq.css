@@ -1,10 +1,13 @@
-.faq-container {
-  margin: 64px auto;
+.faq {
+  padding: 64px 0;
 }
 @media only screen and (min-width: 1440px) {
-  .faq-container {
-    margin: 92px auto;
+  .faq {
+    padding: 92px 0;
   }
+}
+.faq-container {
+  margin: 0 auto;
 }
 .faq-header {
   display: flex;
@@ -58,9 +61,17 @@
 .faq-question {
   font-weight: 700;
   font-size: 18px;
+  line-height: 1.5;
 }
 .faq-icon {
+  width: 24px;
+  height: 24px;
+  padding: 4.5px;
   flex-shrink: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .faq-item.is-active .faq-icon {
