@@ -14,9 +14,9 @@
       referrerpolicy="no-referrer"
     />
     <script type="module" crossorigin src="/webdevs-06/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/webdevs-06/assets/vendor-D3D60kz1.js">
-    <link rel="stylesheet" crossorigin href="/webdevs-06/assets/vendor-Ug69zcqz.css">
-    <link rel="stylesheet" crossorigin href="/webdevs-06/assets/index-CBwTHSgn.css">
+    <link rel="modulepreload" crossorigin href="/webdevs-06/assets/vendor-C80np1gx.js">
+    <link rel="stylesheet" crossorigin href="/webdevs-06/assets/vendor-ZDK7Vthe.css">
+    <link rel="stylesheet" crossorigin href="/webdevs-06/assets/index-W2iZUQ50.css">
   </head>
   <body>
     <header class="header">
@@ -195,10 +195,41 @@
   </div>
 </section>
 
-      <section id="feedbacks">
-  <div class="feedbacks-container container"></div>
-</section>
+      <section class="feedbacks" id="feedbacks">
+  <div class="feedbacks-container container">
+    <div class="feedbacks-header">
+      <svg class="feedbacks-icon" aria-hidden="true" width="300" height="20">
+        <use href="../img/symbol-defs.svg#icon-decoration"></use>
+      </svg>
+      <h2 class="feedbacks-title">Words from Our Wonderful Couples</h2>
+      <p class="feedbacks-description">
+        Read what the couples who entrusted us with their most precious memories
+        have to say.
+      </p>
+    </div>
 
+    <div class="feedbacks-slider swiper">
+      <ul class="feedbacks-list swiper-wrapper"></ul>
+    </div>
+
+    <div class="feedbacks-controls">
+      <div class="feedbacks-pagination swiper-pagination"></div>
+
+      <div class="feedbacks-navigation">
+        <button class="feedbacks-button feedbacks-button-prev" type="button" aria-label="Previous feedback">
+          <svg width="16" height="16">
+            <use href="../img/symbol-defs.svg#icon-arrow-left"></use>
+          </svg>
+        </button>
+        <button class="feedbacks-button feedbacks-button-next" type="button" aria-label="Next feedback">
+          <svg width="16" height="16">
+            <use href="../img/symbol-defs.svg#icon-arrow-right"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
       <section id="portfolio">
   <div class="container">
     <svg class="portfolio-svg" width="300" height="20">
