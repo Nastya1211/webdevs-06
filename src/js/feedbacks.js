@@ -21,10 +21,14 @@ const createFeedbackCard = ({ descr = '', name = '' }) => `
 const initFeedbacksSlider = () => {
   new Swiper('.feedbacks-slider', {
     modules: [Navigation, Pagination],
-    slidesPerView: 'auto',
-    slidesPerGroup: 1,
-    spaceBetween: 24,
     speed: 500,
+    spaceBetween: 24,
+    slidesPerView: 1,
+    breakpoints: {
+      768: {
+        slidesPerView: 3,
+      }
+    },
     pagination: {
       el: feedbacksPagination,
       type: 'bullets',
@@ -51,9 +55,12 @@ if (feedbacksList) {
       if (Array.isArray(feedbacks) && feedbacks.length > 0) {
         feedbacksList.innerHTML = feedbacks.map(createFeedbackCard).join('');
         initFeedbacksSlider();
+      } else {
+        document.querySelector('.feedbacks-controls')?.remove();
       }
     })
     .catch(error => {
       console.error(error);
+      document.querySelector('.feedbacks-controls')?.remove();
     });
-}
+} 

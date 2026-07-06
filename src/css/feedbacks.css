@@ -4,7 +4,7 @@
 }
 
 .feedbacks-container {
-  overflow: hidden;
+ overflow: hidden;
 }
 
 .feedbacks-icon {
@@ -77,51 +77,54 @@
   justify-content: space-between;
 }
 
+/* Базовий контейнер пагінації */
+.feedbacks-pagination.swiper-pagination-css-mode,
 .feedbacks-pagination {
-  position: relative;
-  bottom: 0;
-  display: flex;
+  display: flex !important;
   align-items: center;
-  justify-content: center;
-  width: 34px !important;
-  height: auto;
-  overflow: hidden;
+  justify-content:  flex-start;
+  width: auto !important; 
 }
 
-.feedbacks-controls .feedbacks-pagination.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+.feedbacks-controls .swiper-pagination-bullets-dynamic {
+  overflow: hidden;
   position: relative;
-  top: auto;
   bottom: 0;
-  left: auto;
-  right: auto;
-  width: 34px !important;
-  transform: none;
-  text-align: center;
+  left: 0 !important;
+  transform: translateX(-20%) translateY(70%) !important; 
   white-space: nowrap;
-  overflow: hidden;
-  z-index: 1;
 }
-
-.feedbacks-pagination.swiper-pagination-bullets-dynamic {
-  transform: none;
+span.swiper-pagination-bullet{
+  opacity: 0;
 }
-
-.feedbacks-pagination .swiper-pagination-bullet {
+.feedbacks-pagination .swiper-pagination-bullet-active-main {
   width: 6px;
   height: 6px;
-  margin: 0 4px;
   background-color: #24211d;
   opacity: 0.2;
-  flex-shrink: 0;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 0 4px !important;
+  display: inline-block;
+  border-radius: 50%;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s;
 }
 
-.feedbacks-pagination.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
-  transform: scale(1);
-}
 
 .feedbacks-pagination .swiper-pagination-bullet-active {
   opacity: 1;
+  background-color: #000000;
+  width: 8px;
+  height: 8px;
+}
+.feedbacks-pagination .swiper-pagination-bullet-active-prev,
+.feedbacks-pagination .swiper-pagination-bullet-active-next {
+  opacity: 0;
+  transform: scale(0.66);
+}
+
+.feedbacks-pagination .swiper-pagination-bullet-active-prev-prev,
+.feedbacks-pagination .swiper-pagination-bullet-active-next-next {
+  opacity: 0;
+  transform: scale(0.33);
 }
 
 .feedbacks-navigation {
@@ -186,7 +189,7 @@
   }
 
   .feedbacks-header {
-    margin-bottom: 28px;
+    margin-bottom: 40px;
   }
 
   .feedbacks-title {
