@@ -14,7 +14,6 @@
 .feedbacks-header {
   max-width: 520px;
   margin: 0 auto 40px;
-  text-align: center;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -29,11 +28,12 @@
 }
 
 .feedbacks-description {
-  max-width: 275px;
+  max-width: 335px;
   margin: 0 auto;
   color: #24211d;
-  font-size: 16px;
-  line-height: 1.45;
+  font-weight: 400;
+font-size: 18px;
+line-height: 1.5;
   text-align: center;
 }
 
@@ -53,14 +53,16 @@
   box-sizing: border-box;
   min-height: 328px;
   height: auto;
-  padding: 32px 32px 28px;
+  padding: 32px;
   background-color: #faf7e6;
   border: 2px solid #000000;
   border-radius: 12px;
 }
 
 .feedbacks-text {
-  margin-bottom: 24px;
+  font-weight: 400;
+font-size: 18px;
+line-height: 1.5;
 }
 
 .feedbacks-author {
@@ -142,6 +144,10 @@
   background-color: #e4c34d;
   outline: none;
 }
+.feedbacks-button:active {
+  color: #101010;
+  background-color: #faf7e6;
+}
 
 .feedbacks-button:disabled,
 .feedbacks-button.swiper-button-disabled {
@@ -155,20 +161,22 @@
   .feedbacks {
     padding: 64px 0;
   }
-
+  .feedbacks-header {
+    max-width: 704px;
+  }
   .feedbacks-title {
     max-width: 560px;
     font-size: 32px;
-    line-height: 1.15;
+    line-height: 1.2;
   }
 
   .feedbacks-description {
-    max-width: 500px;
+    max-width: 704px;
   }
 
   .feedbacks-item.swiper-slide {
     min-height: 412px;
-    padding: 24px 20px 22px;
+    padding: 20px;
   }
 }
 
@@ -178,23 +186,23 @@
   }
 
   .feedbacks-container {
-    max-width: 1312px;
     margin: 0 auto;
   }
   .feedbacks-header {
     max-width: 768px;
   }
   .feedbacks-title {
-    font-size: 40px;
+    font-size: 48px;
     max-width: 768px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
   }
   .feedbacks-description {
-    font-size: 14px;
     max-width: 768px;
   }
 
   .feedbacks-item.swiper-slide {
     min-height: 274px;
-    padding: 28px 32px 24px;
+    padding: 32px;
   }
 }
