@@ -11,6 +11,44 @@ const successModal = document.getElementById('success-modal');
 
 const formLoader = createLoader(form, 'Sending...');
 
+let isDeleting = false;
+
+phoneInput.addEventListener('keydown', (event) => {
+  isDeleting = event.key === 'Backspace' || event.key === 'Delete';
+});
+
+function maskPhone(event) {
+  const input = event.target;
+  let inputNumbersValue = input.value.replace(/\D/g, '');
+  let formattedInputValue = '';
+
+  if (isDeleting) {
+    return;
+  }
+
+  if (!inputNumbersValue) {
+    input.value = '';
+    return;
+  }
+
+  formattedInputValue = '+' + inputNumbersValue.substring(0, 1);
+
+  if (inputNumbersValue.length > 1) {
+    formattedInputValue += ' (' + inputNumbersValue.substring(1, 4);
+  }
+  if (inputNumbersValue.length >= 4) {
+    formattedInputValue += ') ';
+  }
+  if (inputNumbersValue.length > 4) {
+    formattedInputValue += inputNumbersValue.substring(4, 7);
+  }
+  if (inputNumbersValue.length >= 7) {
+    formattedInputValue += ' ' + inputNumbersValue.substring(7, 12);
+  }
+
+  input.value = formattedInputValue;
+}
+
 function toggleFieldError(inputElement, isValid, errorMessage = "") {
   const formGroup = inputElement.closest('.form-group');
   const errorSpan = formGroup.querySelector('.error-message');
@@ -75,7 +113,10 @@ function validateForm() {
 }
 
 nameInput.addEventListener('input', validateForm);
+
+phoneInput.addEventListener('input', maskPhone);
 phoneInput.addEventListener('input', validateForm);
+
 messageInput.addEventListener('input', validateForm);
 
 form.addEventListener('submit', async (event) => {
