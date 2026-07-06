@@ -1,0 +1,206 @@
+.contacts-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 64px 20px;
+}
+.contacts-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contacts-decor {
+  fill: rgb(11%, 11%, 11%, 1);
+  width: 300px;
+  height: 20px;
+  margin-bottom: 24px;
+}
+.contacts-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.contacts-title {
+  font-family: 'Cormorant', serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+.contacts-text {
+  font-family: 'Mulish', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  text-align: center;
+}
+.contacts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 32px;
+}
+.contacts-item {
+  margin-bottom: 16px;
+}
+.contacts-item:last-child {
+  margin-bottom: 0;
+}
+.contacts-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0px 6px;
+  gap: 16px;
+  color: rgb(10%, 10%, 10%, 1);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.contacts-link:hover,
+.contacts-link:focus {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+}
+.contacts-link:active {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: rgb(69%, 60%, 5%, 1);
+  background-color: transparent;
+}
+.contacts-icon {
+  fill: currentColor;
+  flex-shrink: 0;
+  stroke: currentColor;
+  stroke-width: 2px;
+}
+.contacts-form {
+  display: flex;
+  flex-direction: column;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+.form-label {
+  font-family: 'Mulish', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: rgb(0%, 0%, 0%, 1);
+  margin-bottom: 8px;
+}
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid rgb(0%, 0%, 0%, 1);
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.form-input:focus {
+  border-color: rgb(69%, 60%, 5%, 1);
+}
+.form-input::placeholder {
+  color: rgb(0 0 0 / 0.6);
+  opacity: 1;
+}
+.text-area {
+  height: 150px;
+  resize: none;
+}
+.error-message {
+  display: none;
+  font-family: 'Mulish', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: rgb(77%, 0%, 0%, 1);
+  margin-top: 8px;
+}
+.form-group.has-error .error-message {
+  display: block;
+}
+.form-group.has-error .form-input {
+  border-color: rgb(77%, 0%, 0%, 1);
+}
+.form-group.has-error .form-input::placeholder {
+  color: rgb(77%, 0%, 0%, 1);
+  opacity: 1;
+}
+.form-button {
+  font-family: 'Mulish', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: rgb(0%, 0%, 0%, 1);
+  background-color: rgb(86%, 76%, 6%, 1);
+  border: 1px solid rgb(86%, 76%, 6%, 1);
+  border-radius: 6px;
+  padding: 10px 24px;
+  width: 335px;
+  height: 44px;
+  max-width: 100%;
+  cursor: pointer;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.form-button:disabled {
+  opacity: 0.6;
+  color: #8e8e8e;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.form-button:hover,
+.form-button:focus {
+  background-color: transparent;
+}
+.form-button:active {
+  background-color: rgb(90%, 83%, 34%, 1);
+  box-shadow:
+    inset 0 4px 8px -2px rgba(0, 0, 0, 0.1),
+    inset 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+}
+.is-hidden {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .contacts-container {
+    padding: 64px 32px;
+  }
+  .contacts-info {
+    align-items: start;
+  }
+  .contacts-content {
+    align-items: start;
+  }
+  .contacts-text {
+    text-align: start;
+  }
+  .form-button {
+    width: 310px;
+  }
+  .contacts-decor {
+    align-self: start;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .contacts-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 92px 64px;
+  }
+  .contacts-content {
+    width: 644px;
+  }
+  .form {
+    width: 644px;
+  }
+}
