@@ -2,10 +2,6 @@ html {
   scroll-behavior: smooth;
 }
 
-.header {
-  padding: 20px 0;
-}
-
 .header-container {
   display: flex;
   align-items: center;
@@ -25,6 +21,11 @@ html {
 }
 
 .mobile-menu-btn {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: transparent;
   border: none;
   padding: 0;
@@ -66,19 +67,19 @@ html {
 .menu-container {
   max-width: 375px;
   min-height: 100%;
-  padding: 24px 20px;
+  padding: 0 20px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
 }
 
 .logo-close-thumb {
+  margin-bottom: 28px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   height: auto;
-  margin-bottom: 40px;
 }
 
 .menu-logo-ref {
@@ -113,6 +114,7 @@ html {
 .nav-list {
   display: flex;
   flex-direction: column;
+  height: 100%;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -123,7 +125,7 @@ html {
 }
 
 .menu-nav-item:last-child {
-  margin-top: 32px;
+  margin-top: auto;
 }
 
 .menu-nav-link {
@@ -135,6 +137,8 @@ html {
   text-decoration: none;
   display: inline-block;
   transition: color 250ms ease;
+  display: inline-block;
+  padding: 12px 0;
 }
 
 .nav-list li:not(:last-child) a:hover,
@@ -182,10 +186,15 @@ html {
     display: none;
   }
 
+  .logo-icon {
+    width: 78px;
+    height: 68px;
+  }
+
   .header-nav-list {
     display: flex;
     align-items: center;
-    margin: 0;
+
     padding: 0;
     list-style: none;
     gap: 32px;
@@ -246,7 +255,8 @@ html {
     padding: 0 64px;
   }
 
-  .header-nav-list {
-    margin-left: 116px;
+  .logo-icon {
+    width: 80px;
+    height: 70px;
   }
 }
