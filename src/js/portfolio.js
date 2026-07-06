@@ -160,14 +160,14 @@ import { createLoader } from "./loader.js";
   }
 
   function loadMore() {
-    state.page += 1;
-    fetchPhotos({
-      page: state.page,
-      limit: LOAD_MORE_LIMIT,
-      categoryId: state.categoryId,
-      append: true,
-    });
-  }
+  const nextPage = Math.floor(state.loadedCount / LOAD_MORE_LIMIT) + 1;
+  fetchPhotos({
+    page: nextPage,
+    limit: LOAD_MORE_LIMIT,
+    categoryId: state.categoryId,
+    append: true,
+  });
+}
 
   filtersEl.addEventListener("click", (e) => {
     const btn = e.target.closest(".portfolio__filter-btn");
