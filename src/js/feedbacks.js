@@ -24,22 +24,58 @@ const initFeedbacksSlider = () => {
     speed: 500,
     spaceBetween: 24,
     slidesPerView: 1,
+    slidesPerGroup: 1,
     breakpoints: {
       768: {
         slidesPerView: 3,
-      }
+        slidesPerGroup: 1,
+      },
+      1440: {
+        slidesPerView: 3,
+        slidesPerGroup: 1,
+      },
     },
     pagination: {
       el: feedbacksPagination,
-      type: 'bullets',
-      clickable: true,
-      dynamicBullets: true,
-      dynamicMainBullets: 3,
+      type: 'custom',
+      renderCustom: function (swiper, current, total) {
+        let bulletsHtml = '';
+        const totalCustomBullets = 3;
+
+        const activeIndex = swiper.realIndex % totalCustomBullets;
+
+        for (let i = 0; i < totalCustomBullets; i++) {
+          const isActive =
+            i === activeIndex ? 'swiper-pagination-bullet-active' : '';
+          bulletsHtml += `<span class="swiper-pagination-bullet ${isActive}" data-index="${i}"></span>`;
+        }
+
+        return bulletsHtml;
+      },
     },
     navigation: {
       nextEl: '.feedbacks-button-next',
       prevEl: '.feedbacks-button-prev',
-      disabledClass: 'swiper-button-disabled',
+    },
+    on: {
+      init: function (swiper) {
+        if (!feedbacksPagination) return;
+        feedbacksPagination.addEventListener('click', e => {
+          if (e.target.classList.contains('swiper-pagination-bullet')) {
+            const bulletIndex = parseInt(
+              e.target.getAttribute('data-index'),
+              10
+            );
+
+            const currentRound = Math.floor(swiper.realIndex / 3);
+            const targetSlide = currentRound * 3 + bulletIndex;
+
+            if (targetSlide < swiper.slides.length) {
+              swiper.slideTo(targetSlide);
+            }
+          }
+        });
+      },
     },
   });
 };
@@ -63,4 +99,4 @@ if (feedbacksList) {
       console.error(error);
       document.querySelector('.feedbacks-controls')?.remove();
     });
-} 
+}
