@@ -1,5 +1,6 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
+import { createLoader } from './loader.js';
 import axios from 'axios';
 
 import 'swiper/css';
@@ -10,6 +11,7 @@ const FEEDBACKS_URL = 'https://wedding-photographer.b.goit.study/api/feedbacks';
 
 const feedbacksList = document.querySelector('.feedbacks-list');
 const feedbacksPagination = document.querySelector('.feedbacks-pagination');
+const formLoader = createLoader(feedbacksList);
 
 const createFeedbackCard = ({ descr = '', name = '' }) => `
   <li class="feedbacks-item swiper-slide">
@@ -82,10 +84,12 @@ const initFeedbacksSlider = () => {
 
 const getFeedbacks = async () => {
   const { data } = await axios.get(FEEDBACKS_URL);
+  formLoader.hide();
   return data.feedbacks;
 };
 
 if (feedbacksList) {
+  formLoader.show();
   getFeedbacks()
     .then(feedbacks => {
       if (Array.isArray(feedbacks) && feedbacks.length > 0) {
