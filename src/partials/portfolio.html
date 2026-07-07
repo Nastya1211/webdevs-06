@@ -1,3 +1,44 @@
 <section id="portfolio">
-  <div class="portfolio-container container"></div>
+  <div class="container">
+    <svg class="portfolio-svg" width="300" height="20">
+      <use href="./img/symbol-defs.svg#icon-decoration"></use>
+    </svg>
+    <h2 class="portfolio__title">Portfolio Highlights</h2>
+
+    <ul
+      class="portfolio__filters"
+      id="portfolioFilters"
+      role="tablist"
+      aria-label="Фільтр портфоліо"
+    >
+      <li class="portfolio__filter-item" role="presentation">
+        <button
+          type="button"
+          class="portfolio__filter-btn is-active"
+          role="tab"
+          aria-selected="true"
+          data-category="all"
+        >
+          All Photos
+        </button>
+      </li>
+    </ul>
+
+    <ul class="portfolio__list" id="portfolioList" aria-live="polite">
+      <li class="portfolio__item">
+        <img
+          class="portfolio__img"
+          src="https://example.com/photo1.jpg"
+          alt="Опис фото"
+          loading="lazy"
+        />
+      </li>
+    </ul>
+
+    <div class="portfolio__loader-wrap" id="portfolioLoaderWrap"></div>
+
+    <button type="button" class="portfolio__show-more" id="portfolioShowMore">
+      Show More
+    </button>
+  </div>
 </section>

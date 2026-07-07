@@ -1,0 +1,28 @@
+.shared-loader {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px auto;
+  font-size: 14px;
+  color: #6b6b6b;
+}
+
+.shared-loader.is-visible {
+  display: flex;
+}
+
+.shared-loader-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d8cdb8;
+  border-top-color: #a9925f; /* Колір крутилки (золотавий) */
+  border-radius: 50%;
+  animation: shared-loader-spin 0.8s linear infinite;
+}
+
+@keyframes shared-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
