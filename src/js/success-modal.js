@@ -2,6 +2,11 @@
   const overlay = document.getElementById("success-modal");
   const closeBtn = document.getElementById("successModalClose");
 
+  if (!overlay || !closeBtn) {
+    console.error("Success Modal: required elements not found in DOM.");
+    return;
+  }
+
   function openSuccessModal() {
     overlay.classList.remove("is-hidden");
   }
