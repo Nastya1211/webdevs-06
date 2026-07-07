@@ -1,5 +1,5 @@
 .success-modal-overlay {
-  display: none;
+  display: flex;
   position: fixed;
   inset: 0;
   align-items: center;
