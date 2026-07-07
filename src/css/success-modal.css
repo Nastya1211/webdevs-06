@@ -15,13 +15,12 @@
 
 .success-modal-container {
   position: relative;
-  width: 100%;
-  max-width: 335px;
+  width: 335px;
+  height: 659px;
   background-color: #fbf9f1;
   border-radius: 24px;
   padding: 64px 20px;
   box-sizing: border-box;
-  max-height: 90vh;
   overflow-y: auto;
 }
 
@@ -29,9 +28,9 @@
   position: absolute;
   top: 16px;
   right: 16px;
-  width: 32px;
-  height: 32px;
-  padding: 4px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -46,8 +45,8 @@
 }
 
 .success-modal-close-icon {
-  width: 24px;
-  height: 24px;
+  width: 13px;
+  height: 13px;
   color: #000000;
 }
 
@@ -64,10 +63,10 @@
 
 .success-modal-img {
   display: block;
-  width: 100%;
-  height: auto;
+  width: 295px;
+  height: 207px;
   border-radius: 16px;
-  margin: 0 0 16px;
+  margin: 0 auto 16px;
   object-fit: cover;
 }
 
@@ -88,14 +87,26 @@ body.modal-open {
 
 @media (min-width: 768px) {
   .success-modal-container {
-    max-width: 500px;
+    width: 704px;
+    height: 700px;
     padding: 64px 32px;
+  }
+
+  .success-modal-img {
+    width: 640px;
+    height: 394px;
   }
 }
 
 @media (min-width: 1440px) {
   .success-modal-container {
-    max-width: 560px;
+    width: 768px;
+    height: 700px;
     padding: 64px;
+  }
+
+  .success-modal-img {
+    width: 640px;
+    height: 394px;
   }
 }
