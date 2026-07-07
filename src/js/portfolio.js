@@ -1,31 +1,42 @@
+import { createLoader } from "./loader.js";
+
 (function () {
-  const API_BASE = 'https://wedding-photographer.b.goit.study/api';
+  const API_BASE = "https://wedding-photographer.b.goit.study/api";
   const CATEGORIES_URL = `${API_BASE}/categories`;
   const PHOTOS_URL = `${API_BASE}/wedding-photos`;
 
   const INITIAL_LIMIT = 9;
   const LOAD_MORE_LIMIT = 3;
 
-  const filtersEl = document.getElementById('portfolioFilters');
-  const listEl = document.getElementById('portfolioList');
-  const loaderEl = document.getElementById('portfolioLoader');
-  const showMoreBtn = document.getElementById('portfolioShowMore');
+  const CATEGORY_ORDER = [
+    "Candid Moments",
+    "Portrait Perfection",
+    "Ceremony & Vows",
+    "Joyful Celebrations",
+    "Standart",
+    "Attention to Detail",
+  ];
+
+  const filtersEl = document.getElementById("portfolioFilters");
+  const listEl = document.getElementById("portfolioList");
+  const loaderWrap = document.getElementById("portfolioLoaderWrap");
+  const showMoreBtn = document.getElementById("portfolioShowMore");
+
+  const loader = createLoader(loaderWrap, "Завантаження фото...");
 
   let state = {
-    categoryId: '',
+    categoryId: "",
     loadedCount: 0,
     totalItems: 0,
     page: 1,
   };
 
-  function showLoader() {
-    loaderEl.classList.add('is-visible');
-    loaderEl.setAttribute('aria-hidden', 'false');
-  }
-
-  function hideLoader() {
-    loaderEl.classList.remove('is-visible');
-    loaderEl.setAttribute('aria-hidden', 'true');
+  function sortCategories(categories) {
+    return [...categories].sort((a, b) => {
+      const indexA = CATEGORY_ORDER.indexOf(a.category);
+      const indexB = CATEGORY_ORDER.indexOf(b.category);
+      return indexA - indexB;
+    });
   }
 
   function renderFilters(categories) {
@@ -43,7 +54,7 @@
 
     const categoryBtns = categories
       .map(
-        cat => `
+        (cat) => `
       <li class="portfolio__filter-item" role="presentation">
         <button
           type="button"
@@ -55,7 +66,7 @@
       </li>
     `
       )
-      .join('');
+      .join("");
 
     filtersEl.innerHTML = allBtn + categoryBtns;
   }
@@ -63,7 +74,7 @@
   function renderPhotos(photos, { append }) {
     const markup = photos
       .map(
-        photo => `
+        (photo) => `
       <li class="portfolio__item">
         <img
           class="portfolio__img"
@@ -74,10 +85,10 @@
       </li>
     `
       )
-      .join('');
+      .join("");
 
     if (append) {
-      listEl.insertAdjacentHTML('beforeend', markup);
+      listEl.insertAdjacentHTML("beforeend", markup);
     } else {
       listEl.innerHTML = markup;
     }
@@ -85,19 +96,19 @@
 
   function updateShowMoreVisibility() {
     if (state.loadedCount >= state.totalItems) {
-      showMoreBtn.classList.add('is-hidden');
+      showMoreBtn.classList.add("is-hidden");
     } else {
-      showMoreBtn.classList.remove('is-hidden');
+      showMoreBtn.classList.remove("is-hidden");
       showMoreBtn.disabled = false;
     }
   }
 
   function buildPhotosUrl({ page, limit, categoryId }) {
     const url = new URL(PHOTOS_URL);
-    url.searchParams.set('page', page);
-    url.searchParams.set('limit', limit);
+    url.searchParams.set("page", page);
+    url.searchParams.set("limit", limit);
     if (categoryId) {
-      url.searchParams.set('categoryId', categoryId);
+      url.searchParams.set("categoryId", categoryId);
     }
     return url.toString();
   }
@@ -107,7 +118,7 @@
       const res = await fetch(CATEGORIES_URL);
       if (!res.ok) throw new Error(`Categories request failed: ${res.status}`);
       const categories = await res.json();
-      renderFilters(categories);
+      renderFilters(sortCategories(categories));
     } catch (err) {
       console.error(err);
       filtersEl.innerHTML = `<li class="portfolio__filter-item">Не вдалося завантажити фільтри</li>`;
@@ -115,7 +126,7 @@
   }
 
   async function fetchPhotos({ page, limit, categoryId, append }) {
-    showLoader();
+    loader.show();
     showMoreBtn.disabled = true;
 
     try {
@@ -138,7 +149,7 @@
         listEl.innerHTML = `<li class="portfolio__item portfolio__item--error">Не вдалося завантажити фото</li>`;
       }
     } finally {
-      hideLoader();
+      loader.hide();
     }
   }
 
@@ -149,32 +160,32 @@
   }
 
   function loadMore() {
-    state.page += 1;
-    fetchPhotos({
-      page: state.page,
-      limit: LOAD_MORE_LIMIT,
-      categoryId: state.categoryId,
-      append: true,
-    });
-  }
+  const nextPage = Math.floor(state.loadedCount / LOAD_MORE_LIMIT) + 1;
+  fetchPhotos({
+    page: nextPage,
+    limit: LOAD_MORE_LIMIT,
+    categoryId: state.categoryId,
+    append: true,
+  });
+}
 
-  filtersEl.addEventListener('click', e => {
-    const btn = e.target.closest('.portfolio__filter-btn');
+  filtersEl.addEventListener("click", (e) => {
+    const btn = e.target.closest(".portfolio__filter-btn");
     if (!btn) return;
 
-    filtersEl.querySelectorAll('.portfolio__filter-btn').forEach(b => {
-      b.classList.remove('is-active');
-      b.setAttribute('aria-selected', 'false');
+    filtersEl.querySelectorAll(".portfolio__filter-btn").forEach((b) => {
+      b.classList.remove("is-active");
+      b.setAttribute("aria-selected", "false");
     });
-    btn.classList.add('is-active');
-    btn.setAttribute('aria-selected', 'true');
+    btn.classList.add("is-active");
+    btn.setAttribute("aria-selected", "true");
 
-    const categoryId = btn.dataset.categoryId || '';
+    const categoryId = btn.dataset.categoryId || "";
     loadInitial(categoryId);
   });
 
-  showMoreBtn.addEventListener('click', loadMore);
+  showMoreBtn.addEventListener("click", loadMore);
 
   fetchCategories();
-  loadInitial('');
+  loadInitial("");
 })();

@@ -1,3 +1,91 @@
 <section id="contacts">
-  <div class="contacts-container container"></div>
+  <div class="contacts-container container">
+    <div class="contacts-info">
+      <svg class="contacts-decor">
+        <use href="./img/symbol-defs.svg#icon-decoration" />
+      </svg>
+      <div class="contacts-content">
+        <h2 class="contacts-title">Let's Tell Your Story</h2>
+        <p class="contacts-text">
+          I can't wait to hear more about your wedding! Tell me about your
+          plans, and I'll be in touch to discuss how we can create magic
+          together.
+        </p>
+      </div>
+      <ul class="contacts-list">
+        <li class="contacts-item">
+          <a href="mailto:info@mariakovalenko.com" class="contacts-link">
+            <svg class="contacts-icon" width="24px" height="24px">
+              <use href="./img/symbol-defs.svg#icon-email" /></svg
+            >info@mariakovalenko.com
+          </a>
+        </li>
+        <li class="contacts-item">
+          <a href="tel:+380674444444" class="contacts-link">
+            <svg class="contacts-icon" width="24px" height="24px">
+              <use href="./img/symbol-defs.svg#icon-phone" /></svg
+            >+40 (555) 123-4567
+          </a>
+        </li>
+        <li class="contacts-item">
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Raschdorffstraße+2-26,+13409+Berlin,+Germany"
+            class="contacts-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg class="contacts-icon" width="24px" height="24px">
+              <use href="./img/symbol-defs.svg#icon-geo" /></svg
+            >Raschdorffstraße 2-26, 13409 Berlin, Germany
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="form">
+      <form method="POST" class="contacts-form" id="contacts-form">
+        <div class="form-group">
+          <label for="name" class="form-label">Name*</label>
+          <input
+            class="form-input"
+            type="text"
+            id="name"
+            name="name"
+            autocomplete="name"
+            placeholder="Maria"
+            required
+          />
+          <span class="error-message">Error text</span>
+        </div>
+
+        <div class="form-group">
+          <label for="phone" class="form-label">Phone*</label>
+          <input
+            class="form-input"
+            type="tel"
+            id="phone"
+            name="phone"
+            autocomplete="tel"
+            placeholder="+1 (202) 111 2323"
+            required
+          />
+          <span class="error-message">Error text</span>
+        </div>
+
+        <div class="form-group">
+          <label for="message" class="form-label">Message</label>
+          <textarea
+            class="form-input text-area"
+            id="message"
+            name="message"
+            placeholder="Tell me a little about you and your special day. Don't forget to include your wedding date, venue, and what you're most excited about..."
+          ></textarea
+          ><span class="error-message">Error text</span>
+        </div>
+
+        <button type="submit" id="submit-btn" class="form-button" disabled>
+          Let's Talk
+        </button>
+      </form>
+    </div>
+  </div>
 </section>

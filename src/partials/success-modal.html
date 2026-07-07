@@ -1,3 +1,65 @@
-<div class="success-modal-overlay">
-  <div class="success-modal-container"></div>
+<div class="success-modal-overlay is-hidden" id="success-modal">
+  <div
+    class="success-modal-container"
+    id="successModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="successModalTitle"
+    aria-describedby="successModalDesc"
+  >
+    <button
+      type="button"
+      class="success-modal-close"
+      id="successModalClose"
+      aria-label="Close modal window"
+    >
+      <svg
+        class="success-modal-close-icon"
+        width="24"
+        height="24"
+        aria-hidden="true"
+      >
+        <use href="/img/symbol-defs.svg#icon-close"></use>
+      </svg>
+    </button>
+
+    <h2 class="success-modal-title" id="successModalTitle">
+      Thank You for Your Inquiry!
+    </h2>
+
+    <picture>
+      <source
+        media="(min-width: 1440px)"
+        srcset="
+          /img/success-modal/success-modal-photo-desktop.jpg    1x,
+          /img/success-modal/success-modal-photo-desktop@2x.jpg 2x
+        "
+      />
+      <source
+        media="(min-width: 768px)"
+        srcset="
+          /img/success-modal/success-modal-photo-tablet.jpg    1x,
+          /img/success-modal/success-modal-photo-tablet@2x.jpg 2x
+        "
+      />
+      <img
+        class="success-modal-img"
+        id="successModalImg"
+        src="/img/success-modal/success-modal-photo-mobile.jpg"
+        srcset="
+          /img/success-modal/success-modal-photo-mobile.jpg    1x,
+          /img/success-modal/success-modal-photo-mobile@2x.jpg 2x
+        "
+        alt="Wedding invitation flat lay"
+        loading="lazy"
+      />
+    </picture>
+
+    <p class="success-modal-desc" id="successModalDesc">
+      I have received your message and I'm so excited about your interest! I
+      will get in touch with you within 24-48 hours to discuss the details of
+      your wedding day. In the meantime, feel free to browse my portfolio or
+      follow me on Instagram for more inspiration.
+    </p>
+  </div>
 </div>
