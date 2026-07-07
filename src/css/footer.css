@@ -136,7 +136,9 @@
    
 
   }
-
+.f-menu-list{
+  min-width: 72px;
+}
   .footer-box {
     width: 30%;
     text-align: left;
