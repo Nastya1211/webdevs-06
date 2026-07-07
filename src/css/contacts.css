@@ -115,7 +115,7 @@
   height: 180px;
   resize: none;
   padding-top: 12px;
-  padding-bottom: auto;
+  padding-bottom: 72px;
 }
 .error-message {
   display: none;
@@ -184,6 +184,9 @@
   }
   .contacts-text {
     text-align: start;
+  }
+  .text-area {
+    padding-bottom: 120px;
   }
   .form-button {
     width: 310px;
