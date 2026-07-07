@@ -16,7 +16,7 @@
 .success-modal-container {
   position: relative;
   width: 335px;
-  height: 659px;
+  min-height: 659px;
   background-color: #fbf9f1;
   border-radius: 24px;
   padding: 64px 20px;
