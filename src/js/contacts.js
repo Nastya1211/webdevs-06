@@ -95,8 +95,8 @@ function validateForm() {
   const isPhoneValid = toggleFieldError(phoneInput, isPhoneRegexOk && onlyDigits.length === 12, phoneMessage);
 
   let isMessageValid = true;
-  if (messageValue.length > 0 && messageValue.length <= 2) {
-    isMessageValid = toggleFieldError(messageInput, false, "Message must be longer than 2 characters");
+  if (messageValue.length > 0 && messageValue.length < 5) {
+    isMessageValid = toggleFieldError(messageInput, false, "Message must be at least 5 characters long");
   } else {
     const formGroup = messageInput.closest('.form-group');
     const errorSpan = formGroup.querySelector('.error-message');
