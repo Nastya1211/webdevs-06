@@ -2,6 +2,7 @@
   const overlay = document.getElementById("success-modal");
   const closeBtn = document.getElementById("successModalClose");
 
+
   function openSuccessModal() {
     overlay.classList.remove("is-hidden");
   }
