@@ -16,7 +16,7 @@
     <script type="module" crossorigin src="/webdevs-06/index.js"></script>
     <link rel="modulepreload" crossorigin href="/webdevs-06/assets/vendor-C80np1gx.js">
     <link rel="stylesheet" crossorigin href="/webdevs-06/assets/vendor-ZDK7Vthe.css">
-    <link rel="stylesheet" crossorigin href="/webdevs-06/assets/index-Dc92FSl2.css">
+    <link rel="stylesheet" crossorigin href="/webdevs-06/assets/index-DJgd4eVQ.css">
   </head>
   <body>
     <header class="header">
@@ -563,8 +563,61 @@
     </div>
   </div>
 </footer>
-    <div class="success-modal-overlay">
-  <div class="success-modal-container"></div>
+    <div class="success-modal-overlay" id="successModalOverlay" hidden>
+  <div
+    class="success-modal-container"
+    id="successModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="successModalTitle"
+    aria-describedby="successModalDesc"
+  >
+    <button
+      type="button"
+      class="success-modal-close"
+      id="successModalClose"
+      aria-label="Close modal window"
+    >
+      <svg
+        class="success-modal-close-icon"
+        width="24"
+        height="24"
+        aria-hidden="true"
+      >
+        <use href="/webdevs-06/assets/symbol-defs-BsG1ewFk.svg#icon-close"></use>
+      </svg>
+    </button>
+
+    <h2 class="success-modal-title" id="successModalTitle">
+      Thank You for Your Inquiry!
+    </h2>
+
+    <picture>
+      <source
+        media="(min-width: 1440px)"
+        srcset="/webdevs-06/assets/success-modal-photo-tablet-DDMabpt7.jpg 1x, /webdevs-06/assets/success-modal-photo-tablet@2x-CZ8VCeu3.jpg 2x"
+      />
+      <source
+        media="(min-width: 768px)"
+        srcset="/webdevs-06/assets/success-modal-photo-tablet-DDMabpt7.jpg 1x, /webdevs-06/assets/success-modal-photo-tablet@2x-CZ8VCeu3.jpg 2x"
+      />
+      <img
+        class="success-modal-img"
+        id="successModalImg"
+        src="/webdevs-06/assets/success-modal-photo-mobile-COByzab_.jpg"
+        srcset="/webdevs-06/assets/success-modal-photo-mobile-COByzab_.jpg 1x, /webdevs-06/assets/success-modal-photo-mobile@2x-BZ-Ku30W.jpg 2x"
+        alt="Wedding invitation flat lay"
+        loading="lazy"
+      />
+    </picture>
+
+    <p class="success-modal-desc" id="successModalDesc">
+      I have received your message and I'm so excited about your interest! I
+      will get in touch with you within 24-48 hours to discuss the details of
+      your wedding day. In the meantime, feel free to browse my portfolio or
+      follow me on Instagram for more inspiration.
+    </p>
+  </div>
 </div>
 
 
