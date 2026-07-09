@@ -35,6 +35,7 @@
 ### 🛠️ Back-end:
 
 - ⚡ JavaScript
+- 💻 Swagger UI
 
 ### 🧰 Utilities:
 
