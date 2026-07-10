@@ -1,7 +1,7 @@
-import { createLoader } from "./loader.js";
+import { createLoader } from './loader.js';
 
 (function () {
-  const API_BASE = "https://wedding-photographer.b.goit.study/api";
+  const API_BASE = 'https://wedding-photographer.b.goit.study/api';
   const CATEGORIES_URL = `${API_BASE}/categories`;
   const PHOTOS_URL = `${API_BASE}/wedding-photos`;
 
@@ -9,23 +9,23 @@ import { createLoader } from "./loader.js";
   const LOAD_MORE_LIMIT = 3;
 
   const CATEGORY_ORDER = [
-    "Candid Moments",
-    "Portrait Perfection",
-    "Ceremony & Vows",
-    "Joyful Celebrations",
-    "Standart",
-    "Attention to Detail",
+    'Candid Moments',
+    'Portrait Perfection',
+    'Ceremony & Vows',
+    'Joyful Celebrations',
+    'Standart',
+    'Attention to Detail',
   ];
 
-  const filtersEl = document.getElementById("portfolioFilters");
-  const listEl = document.getElementById("portfolioList");
-  const loaderWrap = document.getElementById("portfolioLoaderWrap");
-  const showMoreBtn = document.getElementById("portfolioShowMore");
+  const filtersEl = document.getElementById('portfolioFilters');
+  const listEl = document.getElementById('portfolioList');
+  const loaderWrap = document.getElementById('portfolioLoaderWrap');
+  const showMoreBtn = document.getElementById('portfolioShowMore');
 
-  const loader = createLoader(loaderWrap, "Завантаження фото...");
+  const loader = createLoader(loaderWrap, 'Uploading photo...');
 
   let state = {
-    categoryId: "",
+    categoryId: '',
     loadedCount: 0,
     totalItems: 0,
     page: 1,
@@ -54,7 +54,7 @@ import { createLoader } from "./loader.js";
 
     const categoryBtns = categories
       .map(
-        (cat) => `
+        cat => `
       <li class="portfolio__filter-item" role="presentation">
         <button
           type="button"
@@ -66,7 +66,7 @@ import { createLoader } from "./loader.js";
       </li>
     `
       )
-      .join("");
+      .join('');
 
     filtersEl.innerHTML = allBtn + categoryBtns;
   }
@@ -74,7 +74,7 @@ import { createLoader } from "./loader.js";
   function renderPhotos(photos, { append }) {
     const markup = photos
       .map(
-        (photo) => `
+        photo => `
       <li class="portfolio__item">
         <img
           class="portfolio__img"
@@ -85,10 +85,10 @@ import { createLoader } from "./loader.js";
       </li>
     `
       )
-      .join("");
+      .join('');
 
     if (append) {
-      listEl.insertAdjacentHTML("beforeend", markup);
+      listEl.insertAdjacentHTML('beforeend', markup);
     } else {
       listEl.innerHTML = markup;
     }
@@ -96,19 +96,19 @@ import { createLoader } from "./loader.js";
 
   function updateShowMoreVisibility() {
     if (state.loadedCount >= state.totalItems) {
-      showMoreBtn.classList.add("is-hidden");
+      showMoreBtn.classList.add('is-hidden');
     } else {
-      showMoreBtn.classList.remove("is-hidden");
+      showMoreBtn.classList.remove('is-hidden');
       showMoreBtn.disabled = false;
     }
   }
 
   function buildPhotosUrl({ page, limit, categoryId }) {
     const url = new URL(PHOTOS_URL);
-    url.searchParams.set("page", page);
-    url.searchParams.set("limit", limit);
+    url.searchParams.set('page', page);
+    url.searchParams.set('limit', limit);
     if (categoryId) {
-      url.searchParams.set("categoryId", categoryId);
+      url.searchParams.set('categoryId', categoryId);
     }
     return url.toString();
   }
@@ -146,7 +146,7 @@ import { createLoader } from "./loader.js";
     } catch (err) {
       console.error(err);
       if (!append) {
-        listEl.innerHTML = `<li class="portfolio__item portfolio__item--error">Не вдалося завантажити фото</li>`;
+        listEl.innerHTML = `<li class="portfolio__item portfolio__item--error">Failed to load the photo</li>`;
       }
     } finally {
       loader.hide();
@@ -160,32 +160,32 @@ import { createLoader } from "./loader.js";
   }
 
   function loadMore() {
-  const nextPage = Math.floor(state.loadedCount / LOAD_MORE_LIMIT) + 1;
-  fetchPhotos({
-    page: nextPage,
-    limit: LOAD_MORE_LIMIT,
-    categoryId: state.categoryId,
-    append: true,
-  });
-}
+    const nextPage = Math.floor(state.loadedCount / LOAD_MORE_LIMIT) + 1;
+    fetchPhotos({
+      page: nextPage,
+      limit: LOAD_MORE_LIMIT,
+      categoryId: state.categoryId,
+      append: true,
+    });
+  }
 
-  filtersEl.addEventListener("click", (e) => {
-    const btn = e.target.closest(".portfolio__filter-btn");
+  filtersEl.addEventListener('click', e => {
+    const btn = e.target.closest('.portfolio__filter-btn');
     if (!btn) return;
 
-    filtersEl.querySelectorAll(".portfolio__filter-btn").forEach((b) => {
-      b.classList.remove("is-active");
-      b.setAttribute("aria-selected", "false");
+    filtersEl.querySelectorAll('.portfolio__filter-btn').forEach(b => {
+      b.classList.remove('is-active');
+      b.setAttribute('aria-selected', 'false');
     });
-    btn.classList.add("is-active");
-    btn.setAttribute("aria-selected", "true");
+    btn.classList.add('is-active');
+    btn.setAttribute('aria-selected', 'true');
 
-    const categoryId = btn.dataset.categoryId || "";
+    const categoryId = btn.dataset.categoryId || '';
     loadInitial(categoryId);
   });
 
-  showMoreBtn.addEventListener("click", loadMore);
+  showMoreBtn.addEventListener('click', loadMore);
 
   fetchCategories();
-  loadInitial("");
+  loadInitial('');
 })();

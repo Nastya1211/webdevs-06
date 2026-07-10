@@ -1,7 +1,7 @@
-export function createLoader(parentElement, text = 'Завантаження...') {
+export function createLoader(parentElement, text = 'Loading...') {
   if (!parentElement) {
     console.error(
-      'Loader Error: Не вказано батьківський елемент (parentElement).'
+      'Loader Error: Parent element not specified (parentElement).'
     );
     return null;
   }
